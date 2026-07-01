@@ -39,6 +39,39 @@
     section.prepend(wipe);
   });
 
+  // Decorative chapter UI begins after the hero and is hidden below desktop/tablet widths.
+  const chapterDefinitions = [
+    { selector: "#about", index: "01", label: "About" },
+    { selector: "#journey", index: "02", label: "Journey" },
+    { selector: "#expertise", index: "03", label: "Expertise" },
+    { selector: "#work", index: "04", label: "Projects" },
+    { selector: ".testimonials", index: "05", label: "Testimonials" },
+    { selector: ".process", index: "06", label: "Process" },
+    { selector: "#contact", index: "07", label: "Contact" }
+  ];
+  const chapterSections = chapterDefinitions.map(chapter => ({ ...chapter, element: document.querySelector(chapter.selector) })).filter(chapter => chapter.element);
+
+  chapterSections.forEach(chapter => {
+    chapter.element.classList.add("post-hero-enhanced");
+    if (chapter.element.querySelector(":scope > .section-atmosphere")) return;
+    const atmosphere = document.createElement("div");
+    atmosphere.className = "section-atmosphere";
+    atmosphere.setAttribute("aria-hidden", "true");
+    atmosphere.innerHTML = `
+      <span class="section-grid-field"></span>
+      <span class="section-beam"></span>
+      <span class="section-fragment section-fragment-a"><i></i><i></i><i></i></span>
+      <span class="section-fragment section-fragment-b"><i></i><i></i></span>
+      <span class="section-coordinate">${chapter.index} / ${chapter.label}</span>`;
+    chapter.element.prepend(atmosphere);
+  });
+
+  const chapterRail = document.createElement("div");
+  chapterRail.className = "chapter-rail";
+  chapterRail.setAttribute("aria-hidden", "true");
+  chapterRail.innerHTML = `<span class="chapter-rail-number">01</span><div class="chapter-rail-dots">${chapterSections.map((_, index) => `<i${index === 0 ? ' class="active"' : ""}></i>`).join("")}</div><small class="chapter-rail-label">About</small>`;
+  body.appendChild(chapterRail);
+
   /* ---------- Reusable project media ---------- */
   const projectMediaShells = [...document.querySelectorAll("[data-project-media]")];
   const youtubeIdPattern = /^[A-Za-z0-9_-]{11}$/;
@@ -449,6 +482,7 @@
     const progressNumber = progress?.querySelector("strong");
     const setActiveProject = index => {
       progressDots.forEach((dot, dotIndex) => dot.classList.toggle("active", dotIndex === index));
+      projects.forEach((project, projectIndex) => project.classList.toggle("is-project-active", projectIndex === index));
       if (progressNumber) progressNumber.textContent = String(index + 1).padStart(2, "0");
     };
 
@@ -485,6 +519,138 @@
       gsap.fromTo(card, { rotateY: index === 0 ? -3 : index === 2 ? 3 : 0 }, { rotateY: 0, ease: "none", scrollTrigger: { trigger: card, start: "top bottom", end: "top 55%", scrub: 0.8 } });
     });
     gsap.to(".contact-orb", { scale: 1.18, opacity: 0.7, ease: "none", scrollTrigger: { trigger: ".contact", start: "top bottom", end: "center center", scrub: 1 } });
+
+    /* ---------- Desktop/tablet motion after the hero ---------- */
+    const postHeroMotion = gsap.matchMedia();
+    postHeroMotion.add("(min-width: 761px)", () => {
+      const railDots = [...chapterRail.querySelectorAll(".chapter-rail-dots i")];
+      const railNumber = chapterRail.querySelector(".chapter-rail-number");
+      const railLabel = chapterRail.querySelector(".chapter-rail-label");
+      const setActiveChapter = index => {
+        railDots.forEach((dot, dotIndex) => dot.classList.toggle("active", dotIndex === index));
+        if (railNumber) railNumber.textContent = chapterSections[index].index;
+        if (railLabel) railLabel.textContent = chapterSections[index].label;
+      };
+
+      if (chapterSections.length) {
+        ScrollTrigger.create({
+          trigger: chapterSections[0].element,
+          endTrigger: chapterSections[chapterSections.length - 1].element,
+          start: "top 62%",
+          end: "bottom 38%",
+          onToggle: self => chapterRail.classList.toggle("is-visible", self.isActive)
+        });
+      }
+
+      chapterSections.forEach((chapter, index) => {
+        const section = chapter.element;
+        const atmosphere = section.querySelector(".section-atmosphere");
+        const grid = atmosphere?.querySelector(".section-grid-field");
+        const beam = atmosphere?.querySelector(".section-beam");
+        const fragmentA = atmosphere?.querySelector(".section-fragment-a");
+        const fragmentB = atmosphere?.querySelector(".section-fragment-b");
+        const wipe = section.querySelector(":scope > .section-wipe");
+
+        gsap.fromTo(grid, { yPercent: -8 }, { yPercent: 10, ease: "none", scrollTrigger: { trigger: section, start: "top bottom", end: "bottom top", scrub: 1.4 } });
+        gsap.fromTo(beam, { yPercent: -65, opacity: 0.04 }, { yPercent: 250, opacity: 0.32, ease: "none", scrollTrigger: { trigger: section, start: "top bottom", end: "bottom top", scrub: 1.1 } });
+        gsap.to(fragmentA, { y: -105, x: index % 2 ? -20 : 16, rotate: index % 2 ? -8 : 8, ease: "none", scrollTrigger: { trigger: section, start: "top bottom", end: "bottom top", scrub: 1.6 } });
+        gsap.to(fragmentB, { y: 85, x: index % 2 ? 18 : -14, rotate: index % 2 ? 7 : -7, ease: "none", scrollTrigger: { trigger: section, start: "top bottom", end: "bottom top", scrub: 1.8 } });
+        gsap.fromTo(wipe, { "--wipe-progress": 0 }, { "--wipe-progress": 1, ease: "none", scrollTrigger: { trigger: section, start: "top 94%", end: "top 28%", scrub: 0.8 } });
+
+        ScrollTrigger.create({
+          trigger: section,
+          start: "top 58%",
+          end: "bottom 42%",
+          onEnter: () => setActiveChapter(index),
+          onEnterBack: () => setActiveChapter(index),
+          onToggle: self => section.classList.toggle("is-section-active", self.isActive)
+        });
+      });
+
+      // About: progressive focus moves through the three principles.
+      gsap.utils.toArray(".about .story-block").forEach(block => {
+        const content = block.querySelectorAll("h3, p");
+        gsap.fromTo(content, { x: 28, opacity: 0.3 }, {
+          x: 0,
+          opacity: 1,
+          stagger: 0.08,
+          ease: "none",
+          scrollTrigger: { trigger: block, start: "top 82%", end: "top 48%", scrub: 0.75 }
+        });
+        ScrollTrigger.create({ trigger: block, start: "top 62%", end: "bottom 40%", toggleClass: { targets: block, className: "is-story-active" } });
+      });
+
+      // Journey: milestones slide into focus while the existing orbit remains sticky.
+      gsap.utils.toArray(".journey .timeline-item").forEach(item => {
+        const content = item.querySelectorAll(".timeline-year, h3, p, .timeline-tags");
+        gsap.fromTo(content, { x: 38, opacity: 0.28 }, {
+          x: 0,
+          opacity: 1,
+          stagger: 0.055,
+          ease: "none",
+          scrollTrigger: { trigger: item, start: "top 84%", end: "top 48%", scrub: 0.8 }
+        });
+      });
+
+      // Expertise: cards receive a traveling edge light instead of another heavy entrance.
+      gsap.utils.toArray(".expertise .skill-card").forEach(card => {
+        ScrollTrigger.create({ trigger: card, start: "top 72%", end: "bottom 36%", toggleClass: { targets: card, className: "is-skill-active" } });
+        const icon = card.querySelector(".skill-icon");
+        gsap.fromTo(icon, { rotate: -10, scale: 0.86 }, { rotate: 0, scale: 1, duration: 0.75, ease: "back.out(1.8)", scrollTrigger: { trigger: card, start: "top 76%", once: true } });
+      });
+
+      // Projects: content resolves in layers while each media chapter remains dominant.
+      projects.forEach((project, index) => {
+        const infoBits = project.querySelectorAll(".project-info > div:first-child, .project-info h3, .project-info > p, .project-tags, .text-link");
+        gsap.fromTo(infoBits, { x: index % 2 ? -34 : 34, opacity: 0.3 }, {
+          x: 0,
+          opacity: 1,
+          stagger: 0.045,
+          ease: "none",
+          scrollTrigger: { trigger: project, start: "top 82%", end: "center 58%", scrub: 0.85 }
+        });
+      });
+
+      // Testimonials: a connecting light line and staggered depth maintain visual rhythm.
+      const testimonialGrid = document.querySelector(".testimonial-grid");
+      if (testimonialGrid) {
+        gsap.fromTo(testimonialGrid, { "--testimonial-line": 0 }, { "--testimonial-line": 1, ease: "none", scrollTrigger: { trigger: testimonialGrid, start: "top 82%", end: "center 48%", scrub: 0.8 } });
+      }
+      gsap.utils.toArray(".testimonial-card").forEach((card, index) => {
+        gsap.fromTo(card, { xPercent: (index - 1) * 7, scale: 0.95 }, { xPercent: 0, scale: 1, ease: "none", scrollTrigger: { trigger: card, start: "top 90%", end: "top 55%", scrub: 0.9 } });
+        ScrollTrigger.create({ trigger: card, start: "top 67%", end: "bottom 34%", toggleClass: { targets: card, className: "is-testimonial-active" } });
+      });
+    });
+
+    // The skill system map becomes a single intentional pinned moment on wide screens.
+    postHeroMotion.add("(min-width: 1024px)", () => {
+      if (!skillMap) return;
+      const pinTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: skillMap,
+          start: "top 110px",
+          end: "+=560",
+          pin: true,
+          pinSpacing: true,
+          anticipatePin: 1,
+          scrub: 1,
+          invalidateOnRefresh: true,
+          onToggle: self => skillMap.classList.toggle("is-map-pinned", self.isActive)
+        }
+      });
+      pinTimeline
+        .to(".system-visual", { scale: 1.055, ease: "none" }, 0)
+        .to(".system-lines", { rotate: 7, transformOrigin: "50% 50%", ease: "none" }, 0)
+        .to(".node-ui", { x: -16, y: -10, ease: "none" }, 0)
+        .to(".node-economy", { x: 14, y: -12, ease: "none" }, 0)
+        .to(".node-combat", { x: 17, y: 11, ease: "none" }, 0)
+        .to(".node-optimize", { x: -15, y: 12, ease: "none" }, 0)
+        .to(".skill-map-copy", { y: -14, ease: "none" }, 0);
+
+      // The pin adds scroll space after the chapter triggers are built.
+      // Refresh after layout settles so downstream chapters stay aligned.
+      requestAnimationFrame(() => ScrollTrigger.refresh());
+    });
   }
 
   /* ---------- Project placeholders + Discord copy ---------- */
