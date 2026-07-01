@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siffy | Roblox Developer &amp; Lua Scripter</title>
+  <meta name="description" content="Portfolio of Siffy, a Roblox developer with three years of experience building polished game systems, interfaces, combat mechanics, progression, and optimized Lua experiences.">
+  <meta name="keywords" content="Siffy, Roblox developer, Roblox scripter, Lua developer, Luau, game systems, UI scripting, Roblox Studio">
+  <meta name="author" content="Siffy">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#090b10">
+
+  <!-- Replace this canonical URL with the final live domain before launch. -->
+  <link rel="canonical" href="https://your-domain.com/">
+
+  <!-- Open Graph preview metadata -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Siffy Portfolio">
+  <meta property="og:title" content="Siffy | Roblox Developer &amp; Lua Scripter">
+  <meta property="og:description" content="Polished Roblox systems, responsive interfaces, and gameplay engineered to keep players engaged.">
+  <meta property="og:url" content="https://your-domain.com/">
+  <meta property="og:image" content="https://your-domain.com/assets/social-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Siffy — Roblox developer portfolio">
+
+  <!-- Twitter / X large preview card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Siffy | Roblox Developer &amp; Lua Scripter">
+  <meta name="twitter:description" content="Polished Roblox systems, responsive interfaces, and gameplay engineered to keep players engaged.">
+  <meta name="twitter:image" content="https://your-domain.com/assets/social-preview.png">
+  <meta name="twitter:image:alt" content="Siffy — Roblox developer portfolio">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- GSAP 3.15 + ScrollTrigger power the cinematic scroll choreography. -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="page-loader" aria-hidden="true">
+    <div class="loader-mark">S<span>.</span></div>
+    <div class="loader-line"><span></span></div>
+  </div>
+
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"><span></span></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <canvas class="ambient-canvas" data-ambient-canvas aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="#top" aria-label="Siffy — back to top">
+      <span class="brand-mark">S</span>
+      <span class="brand-name">Siffy</span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="site-nav">
+      <span></span><span></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+      <a href="#about">About</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#work">Work</a>
+      <a class="nav-cta magnetic" href="#contact"><span>Let’s talk</span><i aria-hidden="true"></i></a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO: Edit the main introduction copy here. -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-ambient" aria-hidden="true">
+        <div class="orb orb-one" data-parallax="-0.08"></div>
+        <div class="orb orb-two" data-parallax="0.12"></div>
+        <div class="light-streak" data-parallax="0.18"></div>
+        <div class="grid-plane"></div>
+      </div>
+
+      <div class="hero-content shell">
+        <div class="hero-copy">
+          <p class="eyebrow hero-eyebrow"><span class="status-dot"></span> Available for select projects</p>
+          <h1 id="hero-title" class="hero-title" aria-label="I build Roblox experiences that feel exceptional.">
+            <span class="title-line"><span>I build Roblox</span></span>
+            <span class="title-line"><span>experiences that feel</span></span>
+            <span class="title-line accent-line"><span>exceptional.</span></span>
+          </h1>
+          <div class="hero-bottom">
+            <p class="hero-intro">Roblox developer focused on polished systems, responsive interfaces, and gameplay that keeps players engaged.</p>
+            <a class="circle-link magnetic" href="#work" aria-label="Explore selected work">
+              <span>Explore<br>my work</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="visual-halo"></div>
+          <div class="code-window tilt-card">
+            <div class="window-bar">
+              <div class="window-dots"><i></i><i></i><i></i></div>
+              <span>PlayerDataService.lua</span>
+              <span class="window-status">● Live</span>
+            </div>
+            <div class="code-body">
+              <div class="code-gutter">01<br>02<br>03<br>04<br>05<br>06<br>07<br>08<br>09<br>10</div>
+              <pre><code data-code-animation><span class="code-line"><span class="c-purple">local</span> DataService = {}</span>
+<span class="code-line">&nbsp;</span>
+<span class="code-line"><span class="c-purple">function</span> DataService:<span class="c-blue">Load</span>(player)</span>
+<span class="code-line">  <span class="c-purple">local</span> profile = Store:<span class="c-blue">StartSession</span>({</span>
+<span class="code-line">    Cancel = <span class="c-purple">function</span>()</span>
+<span class="code-line">      <span class="c-purple">return</span> player.Parent ~= Players</span>
+<span class="code-line">    <span class="c-purple">end</span>,</span>
+<span class="code-line">  })</span>
+<span class="code-line">  <span class="c-purple">return</span> profile</span>
+<span class="code-line"><span class="c-purple">end</span></span></code></pre>
+            </div>
+            <div class="floating-chip chip-a"><span>60</span> FPS</div>
+            <div class="floating-chip chip-b"><span>12ms</span> response</div>
+          </div>
+        </div>
+
+        <div class="hero-meta" aria-label="Experience summary">
+          <div><span class="meta-number" data-counter="3" data-pad="2">03</span><p>Years<br>coding</p></div>
+          <div><span class="meta-number" data-counter="12" data-suffix="+">12+</span><p>Core<br>disciplines</p></div>
+          <div class="scroll-cue"><span></span><p>Scroll to<br>discover</p></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>GAME SYSTEMS</span><i></i><span>LUA ENGINEERING</span><i></i><span>UI SCRIPTING</span><i></i><span>OPTIMIZATION</span><i></i>
+        <span>GAME SYSTEMS</span><i></i><span>LUA ENGINEERING</span><i></i><span>UI SCRIPTING</span><i></i><span>OPTIMIZATION</span><i></i>
+      </div>
+    </div>
+
+    <!-- ABOUT: The left column stays visually anchored while the story scrolls. -->
+    <section class="about section" id="about" aria-labelledby="about-title">
+      <div class="shell about-layout">
+        <div class="section-heading sticky-heading reveal">
+          <p class="section-index">01 — About</p>
+          <h2 id="about-title">Built with intent.<br><em>Engineered to last.</em></h2>
+          <div class="heading-line"></div>
+        </div>
+
+        <div class="about-story">
+          <p class="story-lead text-reveal">I’m Siffy, a Roblox developer with three years of experience turning ambitious ideas into dependable, player-ready experiences.</p>
+
+          <div class="story-block reveal">
+            <span class="story-number">01</span>
+            <div>
+              <h3>Systems with structure</h3>
+              <p>I build modular gameplay systems that are clear to maintain, easy to extend, and designed to perform under real player load.</p>
+            </div>
+          </div>
+          <div class="story-block reveal">
+            <span class="story-number">02</span>
+            <div>
+              <h3>Details players feel</h3>
+              <p>From input feedback to UI motion, I care about the small interactions that turn a working feature into a convincing experience.</p>
+            </div>
+          </div>
+          <div class="story-block reveal">
+            <span class="story-number">03</span>
+            <div>
+              <h3>Performance by design</h3>
+              <p>Optimization is part of the architecture—not a final patch. Every system is built with responsiveness and stability in mind.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOURNEY: Replace milestones as Siffy's career grows. -->
+    <section class="journey section" id="journey" aria-labelledby="journey-title">
+      <div class="journey-ambient" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="shell">
+        <div class="section-heading horizontal-heading reveal">
+          <div>
+            <p class="section-index">02 — Journey</p>
+            <h2 id="journey-title">Three years of building<br><em>better each time.</em></h2>
+          </div>
+          <p>A progression from learning the platform to engineering complete systems with production-level care.</p>
+        </div>
+
+        <div class="journey-layout">
+          <div class="journey-orbit reveal" aria-hidden="true">
+            <div class="orbit-ring orbit-ring-one"></div>
+            <div class="orbit-ring orbit-ring-two"></div>
+            <div class="orbit-core"><strong data-counter="3">3</strong><span>years<br>in motion</span></div>
+            <span class="orbit-label label-lua">Lua</span>
+            <span class="orbit-label label-systems">Systems</span>
+            <span class="orbit-label label-ui">Interface</span>
+          </div>
+
+          <div class="timeline" data-timeline>
+            <div class="timeline-line"><span data-timeline-progress></span></div>
+            <article class="timeline-item" data-year="01">
+              <span class="timeline-dot"></span>
+              <div class="timeline-year">Year one</div>
+              <h3>Foundation</h3>
+              <p>Started with Lua fundamentals, Roblox Studio workflows, and the discipline of turning small mechanics into stable features.</p>
+              <div class="timeline-tags"><span>Lua</span><span>Studio</span><span>Core scripting</span></div>
+            </article>
+            <article class="timeline-item" data-year="02">
+              <span class="timeline-dot"></span>
+              <div class="timeline-year">Year two</div>
+              <h3>Connected systems</h3>
+              <p>Moved into inventories, products, admin tools, progression loops, and interfaces that work together as one experience.</p>
+              <div class="timeline-tags"><span>Architecture</span><span>UI</span><span>Economy</span></div>
+            </article>
+            <article class="timeline-item" data-year="03">
+              <span class="timeline-dot"></span>
+              <div class="timeline-year">Year three · Now</div>
+              <h3>Production thinking</h3>
+              <p>Focused on scalable architecture, responsive combat, optimization, debugging, and the finishing details players notice.</p>
+              <div class="timeline-tags"><span>Optimization</span><span>Combat</span><span>Polish</span></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERTISE: Add or remove skill cards inside this grid. -->
+    <section class="expertise section" id="expertise" aria-labelledby="expertise-title">
+      <div class="expertise-glow" aria-hidden="true" data-parallax="-0.05"></div>
+      <div class="shell">
+        <div class="section-heading horizontal-heading reveal">
+          <div>
+            <p class="section-index">03 — Expertise</p>
+            <h2 id="expertise-title">Capabilities across the <em>full game loop.</em></h2>
+          </div>
+          <p>From backend logic to the final interface interaction, I build connected systems with a sharp focus on quality.</p>
+        </div>
+
+        <div class="skills-grid stagger-group">
+          <article class="skill-card skill-featured reveal-card">
+            <div class="card-top">
+              <span class="skill-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/></svg></span>
+              <span class="card-id">01</span>
+            </div>
+            <div>
+              <p class="card-kicker">Core development</p>
+              <h3>Roblox scripting<br>&amp; Lua</h3>
+              <p>Readable, modular code that turns game concepts into reliable production systems.</p>
+            </div>
+            <div class="card-tags"><span>Luau</span><span>Architecture</span><span>Datastores</span></div>
+          </article>
+
+          <article class="skill-card reveal-card">
+            <div class="card-top"><span class="skill-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 9v11"/></svg></span><span class="card-id">02</span></div>
+            <div><p class="card-kicker">Player experience</p><h3>UI scripting</h3><p>Responsive interfaces, fluid interactions, and clean user flows across every screen.</p></div>
+            <div class="card-tags"><span>Animation</span><span>UX</span></div>
+          </article>
+
+          <article class="skill-card reveal-card">
+            <div class="card-top"><span class="skill-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 7v10l8 4 8-4V7l-8-4Z"/><path d="m4 7 8 4 8-4M12 11v10"/></svg></span><span class="card-id">03</span></div>
+            <div><p class="card-kicker">Progression</p><h3>Economy systems</h3><p>Gamepasses, developer products, rebirths, and inventories that support retention.</p></div>
+            <div class="card-tags"><span>Monetization</span><span>Inventory</span></div>
+          </article>
+
+          <article class="skill-card reveal-card">
+            <div class="card-top"><span class="skill-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4.5 19 9l-10 10H4.5v-4.5l10-10Z"/><path d="m12 7 4.5 4.5M6 5l2 2M17 16l2 2"/></svg></span><span class="card-id">04</span></div>
+            <div><p class="card-kicker">Gameplay</p><h3>Combat mechanics</h3><p>Responsive, readable combat with satisfying feedback and dependable state handling.</p></div>
+            <div class="card-tags"><span>Hitboxes</span><span>State</span></div>
+          </article>
+
+          <article class="skill-card skill-wide reveal-card">
+            <div class="card-top"><span class="skill-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg></span><span class="card-id">05</span></div>
+            <div><p class="card-kicker">Operations</p><h3>Admin, optimization<br>&amp; bug fixing</h3><p>Practical tooling and deliberate performance work that keep live experiences stable, secure, and easy to manage.</p></div>
+            <div class="metric-row"><div><strong>Clean</strong><span>architecture</span></div><div><strong>Fast</strong><span>runtime</span></div><div><strong>Stable</strong><span>releases</span></div></div>
+          </article>
+        </div>
+
+        <!-- Animated system map complements the detailed skill cards above. -->
+        <div class="skill-map reveal" data-skill-map>
+          <div class="skill-map-copy">
+            <p class="card-kicker">Connected expertise</p>
+            <h3>Every system supports<br>the player experience.</h3>
+            <p>The strongest games are not collections of features. They are connected loops where code, interface, progression, and performance reinforce one another.</p>
+            <div class="skill-map-legend"><span><i></i>Player-facing</span><span><i></i>System-level</span></div>
+          </div>
+          <div class="system-visual" aria-label="Visualization connecting game systems, UI, economy, combat, and optimization">
+            <svg class="system-lines" viewBox="0 0 600 430" aria-hidden="true">
+              <path data-path d="M300 215 135 110"/><path data-path d="M300 215 465 100"/><path data-path d="M300 215 500 300"/><path data-path d="M300 215 125 325"/>
+              <circle cx="300" cy="215" r="128"/><circle cx="300" cy="215" r="177"/>
+            </svg>
+            <div class="system-node node-core"><span>Core</span><strong>Game<br>systems</strong></div>
+            <div class="system-node node-ui"><i></i><span>UI scripting</span></div>
+            <div class="system-node node-economy"><i></i><span>Economy</span></div>
+            <div class="system-node node-combat"><i></i><span>Combat</span></div>
+            <div class="system-node node-optimize"><i></i><span>Optimization</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS: Replace each commented image, href, and description with final content. -->
+    <section class="work section" id="work" aria-labelledby="work-title">
+      <div class="shell">
+        <div class="section-heading work-heading reveal">
+          <p class="section-index">04 — Selected work</p>
+          <h2 id="work-title">Projects built to<br><em>hold attention.</em></h2>
+        </div>
+
+        <div class="project-progress" aria-hidden="true"><span>Selected work</span><div><i class="active"></i><i></i><i></i></div><strong>01</strong></div>
+        <div class="project-list">
+          <article class="project project-one reveal-project">
+            <!-- Replace this image URL here: data-image-url="assets/combatle-placeholder.svg" -->
+            <!-- Replace this YouTube video ID here: data-youtube-id="" -->
+            <!-- Set data-media-type to "image" or "youtube". Empty/invalid media shows the fallback card. -->
+            <div class="project-media tilt-card" data-project-media data-media-type="image" data-image-url="assets/combatle-placeholder.svg" data-youtube-id="" data-project-title="Combatle">
+              <div class="project-media-fallback" role="img" aria-label="Combatle project media placeholder">
+                <span class="media-fallback-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg></span>
+                <small>Project media</small><strong>Combatle</strong><p>Add a screenshot or YouTube video ID in the HTML.</p>
+              </div>
+              <div class="project-media-stage" data-media-stage></div>
+              <span class="studio-frame"><i></i><i></i><i></i><small>Roblox Studio · Combatle</small><b>RUNNING</b></span>
+              <!-- Replace this project link here: href="#" -->
+              <a class="project-view" href="#" data-placeholder-link aria-label="Open Combatle game page">View project <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            </div>
+            <div class="project-info">
+              <div><span class="project-number">01 / 03</span><span class="project-type">Combat game</span></div>
+              <h3>Combatle</h3>
+              <!-- REPLACE DESCRIPTION: Update the paragraph below with your final project details. -->
+              <p>A competitive combat experience built around responsive mechanics, clear feedback, and a scalable gameplay foundation.</p>
+              <div class="project-tags"><span>Combat Systems</span><span>Game Logic</span><span>Optimization</span></div>
+              <!-- Replace this project link here: href="#" -->
+              <a class="text-link" href="#" data-placeholder-link>Visit game <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            </div>
+          </article>
+
+          <article class="project project-two reveal-project">
+            <!-- Replace this image URL here: data-image-url="assets/slender-placeholder.svg" -->
+            <!-- Replace this YouTube video ID here: data-youtube-id="M7lc1UVf-VE" -->
+            <!-- This project demonstrates YouTube mode. Set data-media-type="image" to show its image instead. -->
+            <div class="project-media tilt-card" data-project-media data-media-type="youtube" data-image-url="assets/slender-placeholder.svg" data-youtube-id="M7lc1UVf-VE" data-project-title="Slender : Arrival">
+              <div class="project-media-fallback" role="img" aria-label="Slender Arrival project media placeholder">
+                <span class="media-fallback-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg></span>
+                <small>Project media</small><strong>Slender : Arrival</strong><p>Add a screenshot or YouTube video ID in the HTML.</p>
+              </div>
+              <div class="project-media-stage" data-media-stage></div>
+              <span class="studio-frame"><i></i><i></i><i></i><small>Roblox Studio · Slender : Arrival</small><b>RUNNING</b></span>
+              <!-- Replace this project link here: href="#" -->
+              <a class="project-view" href="#" data-placeholder-link aria-label="Open Slender Arrival game page">View project <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            </div>
+            <div class="project-info">
+              <div><span class="project-number">02 / 03</span><span class="project-type">Horror experience</span></div>
+              <h3>Slender : Arrival</h3>
+              <!-- REPLACE DESCRIPTION: Update the paragraph below with your final project details. -->
+              <p>An atmospheric horror experience where environmental systems, pacing, and responsive interactions build sustained tension.</p>
+              <div class="project-tags"><span>Game Systems</span><span>Atmosphere</span><span>UI Scripting</span></div>
+              <!-- Replace this project link here: href="#" -->
+              <a class="text-link" href="#" data-placeholder-link>Visit game <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            </div>
+          </article>
+
+          <article class="project project-three reveal-project">
+            <!-- Replace this image URL here: data-image-url="" -->
+            <!-- Replace this YouTube video ID here: data-youtube-id="" -->
+            <!-- Empty media is intentional here so you can see the polished fallback state. -->
+            <div class="project-media tilt-card" data-project-media data-media-type="image" data-image-url="" data-youtube-id="" data-project-title="Brainrot Mayhem">
+              <div class="project-media-fallback" role="img" aria-label="Brainrot Mayhem project media placeholder">
+                <span class="media-fallback-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg></span>
+                <small>Project media</small><strong>Brainrot Mayhem</strong><p>Add a screenshot or YouTube video ID in the HTML.</p>
+              </div>
+              <div class="project-media-stage" data-media-stage></div>
+              <span class="studio-frame"><i></i><i></i><i></i><small>Roblox Studio · Brainrot Mayhem</small><b>RUNNING</b></span>
+              <!-- Replace this project link here: href="#" -->
+              <a class="project-view" href="#" data-placeholder-link aria-label="Open Brainrot Mayhem game page">View project <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            </div>
+            <div class="project-info">
+              <div><span class="project-number">03 / 03</span><span class="project-type">Mayhem simulator</span></div>
+              <h3>Brainrot Mayhem</h3>
+              <!-- REPLACE DESCRIPTION: Update the paragraph below with your final project details. -->
+              <p>A fast-paced, progression-led experience combining chaotic gameplay with clear rewards and replayable system design.</p>
+              <div class="project-tags"><span>Progression</span><span>Products</span><span>Inventory</span></div>
+              <!-- Replace this project link here: href="#" -->
+              <a class="text-link" href="#" data-placeholder-link>Visit game <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS: Replace these placeholders with real client quotes later. -->
+    <section class="testimonials section" aria-labelledby="testimonials-title">
+      <div class="shell">
+        <div class="section-heading horizontal-heading reveal">
+          <div>
+            <p class="section-index">05 — Testimonials</p>
+            <h2 id="testimonials-title">Trusted work.<br><em>Real outcomes.</em></h2>
+          </div>
+          <p>Placeholder feedback area ready for quotes from collaborators, studio owners, and project leads.</p>
+        </div>
+        <div class="testimonial-grid stagger-group">
+          <article class="testimonial-card reveal-card">
+            <div class="quote-mark">“</div>
+            <blockquote>Siffy brought structure to a complex system and made every interaction feel noticeably more responsive.</blockquote>
+            <footer><span>Client name</span><small>Studio / Role · Placeholder</small></footer>
+          </article>
+          <article class="testimonial-card reveal-card">
+            <div class="quote-mark">“</div>
+            <blockquote>Clear communication, thoughtful code, and the kind of polish that makes a feature feel production-ready.</blockquote>
+            <footer><span>Client name</span><small>Studio / Role · Placeholder</small></footer>
+          </article>
+          <article class="testimonial-card reveal-card">
+            <div class="quote-mark">“</div>
+            <blockquote>The final system was easier to manage, faster in-game, and built with future updates in mind.</blockquote>
+            <footer><span>Client name</span><small>Studio / Role · Placeholder</small></footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="process section" aria-labelledby="process-title">
+      <div class="shell process-layout">
+        <div class="section-heading sticky-heading reveal">
+          <p class="section-index">06 — Approach</p>
+          <h2 id="process-title">A clear path from<br><em>idea to release.</em></h2>
+        </div>
+        <ol class="process-list">
+          <li class="reveal"><span>01</span><div><h3>Planning</h3><p>Align on the player goal, technical scope, and the system’s role in the larger experience.</p></div></li>
+          <li class="reveal"><span>02</span><div><h3>Scripting</h3><p>Build a maintainable foundation in practical milestones with clear responsibilities and room to scale.</p></div></li>
+          <li class="reveal"><span>03</span><div><h3>Testing</h3><p>Validate gameplay behavior, edge cases, network conditions, and real player flows throughout development.</p></div></li>
+          <li class="reveal"><span>04</span><div><h3>Optimization</h3><p>Refine performance and interactions, resolve bottlenecks, and prepare a stable production release.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- CONTACT: Update the Discord handle here if it changes. -->
+    <section class="contact section" id="contact" aria-labelledby="contact-title">
+      <div class="contact-orb" aria-hidden="true"></div>
+      <div class="shell contact-inner reveal">
+        <p class="section-index">07 — Contact</p>
+        <p class="contact-kicker">Have a project in mind?</p>
+        <h2 id="contact-title">Let’s make it<br><em>worth playing.</em></h2>
+        <button class="discord-link magnetic" type="button" data-copy-discord="siffycheets" aria-label="Copy Discord username siffycheets">
+          <span class="discord-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.5 8.5c2.3-1 4.7-1 7 0M9 15c2 1 4 1 6 0M9.5 12h.01M14.5 12h.01"/><path d="M7 5.5c3.3-1.3 6.7-1.3 10 0 1.7 2.4 2.5 5.1 2.5 8-1.7 2.2-3.5 3.4-5.5 4l-.8-1.4M17 5.5l-1.2 2M7 5.5l1.2 2M10 16.1 9.2 18c-2-.6-3.8-1.8-5.5-4 0-2.9.8-5.6 2.5-8"/></svg></span>
+          <span><small data-copy-label>Copy my Discord username</small><strong>siffycheets</strong></span>
+          <svg class="link-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+        </button>
+        <div class="contact-float contact-float-one" aria-hidden="true"><span>Response time</span><strong>&lt; 24 hrs</strong></div>
+        <div class="contact-float contact-float-two" aria-hidden="true"><i></i><span>Open to opportunities</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell">
+      <a class="brand" href="#top"><span class="brand-mark">S</span><span class="brand-name">Siffy</span></a>
+      <p>Roblox developer · 3 years of experience</p>
+      <p>© <span data-current-year></span> Siffy</p>
+    </div>
+  </footer>
+
+  <noscript><div class="noscript">This portfolio works without JavaScript, but motion effects require it.</div></noscript>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<svg width="1600" height="1100" viewBox="0 0 1600 1100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#172026"/><stop offset=".6" stop-color="#0b0f13"/><stop offset="1" stop-color="#050708"/></linearGradient>
+    <radialGradient id="fog"><stop stop-color="#9fb0b5" stop-opacity=".28"/><stop offset="1" stop-color="#657579" stop-opacity="0"/></radialGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="25"/></filter>
+  </defs>
+  <rect width="1600" height="1100" fill="url(#sky)"/>
+  <ellipse cx="820" cy="660" rx="740" ry="370" fill="url(#fog)" filter="url(#blur)"/>
+  <g fill="#030405"><path d="m110 860 90-520 35 520zM250 860l130-680 42 680zM430 860l85-490 35 490zM1130 860l110-620 40 620zM1320 860l100-520 34 520zM980 860l60-380 28 380z"/></g>
+  <g fill="#0a0d0f"><path d="M0 805q300-75 560 0t530-10q310-68 510 12v293H0Z"/></g>
+  <g opacity=".45"><ellipse cx="805" cy="510" rx="165" ry="410" fill="url(#fog)"/></g>
+  <path d="M790 335h28l11 113 35 109-27 19-15-91 7 300h-55l8-300-20 91-27-19 42-109Z" fill="#050607"/>
+  <circle cx="804" cy="298" r="50" fill="#d7dbd8" opacity=".82"/>
+  <text x="90" y="105" fill="#e1e5e4" font-family="Arial, sans-serif" font-size="25" letter-spacing="8">SLENDER : ARRIVAL</text>
+  <text x="90" y="1015" fill="#737f82" font-family="Arial, sans-serif" font-size="17" letter-spacing="5">PROJECT IMAGE PLACEHOLDER • REPLACE WITH SCREENSHOT</text>
+</svg>

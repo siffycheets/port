@@ -1,0 +1,15 @@
+<svg width="1600" height="1100" viewBox="0 0 1600 1100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#151b2c"/><stop offset="1" stop-color="#080a11"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#758bff" stop-opacity=".65"/><stop offset="1" stop-color="#758bff" stop-opacity="0"/></radialGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="34"/></filter>
+  </defs>
+  <rect width="1600" height="1100" fill="url(#bg)"/>
+  <g opacity=".13" stroke="#c6ceff"><path d="M0 190h1600M0 390h1600M0 590h1600M0 790h1600M200 0v1100M400 0v1100M600 0v1100M800 0v1100M1000 0v1100M1200 0v1100M1400 0v1100"/></g>
+  <circle cx="820" cy="510" r="420" fill="url(#glow)" filter="url(#blur)"/>
+  <path d="m800 225 258 149v298L800 821 542 672V374Z" fill="#111725" stroke="#9cabff" stroke-opacity=".35" stroke-width="3"/>
+  <path d="m800 307 187 108v216L800 739 613 631V415Z" fill="none" stroke="#aebcff" stroke-opacity=".22" stroke-width="2"/>
+  <path d="m690 607 221-221M670 417l260 260" stroke="#dce1ff" stroke-width="22" stroke-linecap="round" opacity=".8"/>
+  <text x="90" y="105" fill="#e9ecff" font-family="Arial, sans-serif" font-size="25" letter-spacing="8">COMBATLE</text>
+  <text x="90" y="1015" fill="#7d879f" font-family="Arial, sans-serif" font-size="17" letter-spacing="5">PROJECT IMAGE PLACEHOLDER • REPLACE WITH SCREENSHOT</text>
+</svg>
